@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/hero.png" type="image/x-icon">
+  <title>Spice Junction Review Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    .order-section {
+      background: #1a0a00;
+      padding: 50px 20px;
+    }
+
+    .order-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #160800;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(255, 140, 26, 0.8);
+      color: #fff8cc;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .order-heading {
+      text-align: center;
+      font-size: 28px;
+      color: #ffb347;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    #reviewForm {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    #reviewForm label {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    #reviewForm input,
+    #reviewForm textarea,
+    #reviewForm select {
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      background: #140700;
+      color: #fff8cc;
+    }
+
+    #reviewForm input::placeholder,
+    #reviewForm textarea::placeholder {
+      color: #ccc38f;
+    }
+
+    #reviewForm textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn.btn-accent {
+      background: #ff8c1a;
+      color: #fff;
+      border: none;
+      padding: 12px 0;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn.btn-accent:hover {
+      background: #ff9b3d;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="order-section">
+    <div class="order-container">
+      <h2 class="order-heading">Write a Review</h2>
+      <form id="reviewForm">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="review">Your Review</label>
+        <textarea id="review" name="review" placeholder="Write your review here..." required></textarea>
+
+        <label for="rating">Rating</label>
+        <select id="rating" name="rating" required>
+          <option value="">Select Rating</option>
+          <option value="5">★★★★★</option>
+          <option value="4">★★★★☆</option>
+          <option value="3">★★★☆☆</option>
+          <option value="2">★★☆☆☆</option>
+          <option value="1">★☆☆☆☆</option>
+        </select>
+
+        <button type="submit" class="btn btn-accent">Submit Review</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("reviewForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const userName = document.getElementById("name").value;
+      const userReview = document.getElementById("review").value;
+      const userRating = document.getElementById("rating").value;
+
+      Swal.fire({
+        title: 'Thank You!',
+        html: `<strong>${userName}</strong>, your review has been submitted.<br>Rating: <strong>${userRating} stars</strong><br>Review: "${userReview}"`,
+        icon: 'success',
+        confirmButtonColor: '#ff8c1a',
+        confirmButtonText: 'OK'
+      });
+
+      this.reset();
+    });
+  </script>
+</body>
+
+</html>

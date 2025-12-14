@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="img/hero.png" type="image/x-icon">
+<title>Spice Junction</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+<!-- header of website -->
+<header>
+  <h1>Spice Junction</h1>
+  <button class="btn btn-accent" id="openCart">
+    <img src="img/icons8-cart-48.png" width="20"> <sup id="cartCount">0</sup>
+  </button>
+</header>
+
+<!-- hero section -->
+<section class="hero-section">
+  <div class="hero-container">
+
+    <!-- image -->
+    <div class="hero-image">
+      <img src="img/hero.png" alt="Food Hero">
+    </div>
+
+    <!-- content -->
+    <div class="hero-content">
+      <h1>
+        Fresh & Tasty Food  
+        <span>Made With Love</span>
+      </h1>
+
+      <p>
+        Enjoy delicious meals crafted with premium ingredients.
+        Fast delivery, amazing taste, and unforgettable flavors.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary"><a href="/oder.html">Order Now</a></button>
+        <button class="btn btn-secondary"><a href="#cart-section">View Menu</a></button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- all products show in js -->
+<main id="cart-section">
+  <div class="grid" id="products"></div>
+</main>
+
+
+ <!-- Family Deals Section -->
+<div id="familyDealsSection">
+  <h2>Family Deals</h2>
+  <div class="grid" id="familyDeals"></div>
+</div>
+
+<!-- cart pannel show -->
+<div id="cartPanel">
+  <h2>Your Cart <span class="closeCart" id="closeCart">&times;</span></h2>
+  <div id="cartItems"></div>
+  <hr style="border-color: rgba(255,255,255,0.2); margin:1rem 0;">
+  <div style="margin:1rem 0;"><strong>Subtotal: $<span id="subtotal">0.00</span></strong></div>
+  <button class="btn btn-accent" id="buyNow">Pay & Download Invoice</button>
+</div>
+<!-- invoice cart -->
+<div id="invoiceModal" class="modal">
+  <h2 class="inovoice">Invoice</h2>
+  <div id="invoiceBody"></div> 
+  <button class="btn btn-accent mt-5" id="closeInvoice">Close</button>
+</div>
+
+<!-- customer reviews -->
+<div id="customerReviewsSection">
+  <h2>Customer Reviews</h2>
+
+  <div class="review-summary">
+    <div class="total-reviews">
+      <span class="title">Total</span>
+      <div class="stars">
+        ★ ★ ★ ★ ☆
+      </div>
+      <span class="review-count">Based on 27 reviews</span>
+    </div>
+    <button class="write-review-btn"><a href="/review.html">Write a review</a></button>
+  </div>
+
+  <div class="reviews-list">
+    <!-- Review 1 -->
+    <div class="review-card">
+      <div class="reviewer-info">
+        <span class="name">Ahmed Ali</span>
+        <span class="date">December 10, 2025</span>
+      </div>
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="review-text">Food was amazing! Loved the flavors and presentation. Definitely ordering again.</p>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="review-card">
+      <div class="reviewer-info">
+        <span class="name">Sara Khan</span>
+        <span class="date">December 8, 2025</span>
+      </div>
+      <div class="stars">★ ★ ★ ★ ☆</div>
+      <p class="review-text">Good quality food and timely delivery. Could improve the packaging.</p>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="review-card">
+      <div class="reviewer-info">
+        <span class="name">Bilal Sheikh</span>
+        <span class="date">December 5, 2025</span>
+      </div>
+      <div class="stars">★ ★ ★ ★ ☆</div>
+      <p class="review-text">Great taste and portion size. Will recommend to friends and family.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ---------------- FOOTER ---------------- -->
+<footer class="footer-section">
+  <div class="footer-container">
+
+    <!-- Brand & Description -->
+    <div class="footer-brand">
+      <h2>Spice Junction</h2>
+      <p>Delicious meals made with love, delivered fresh to your doorstep.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#cart-section">Menu</a></li>
+        <li><a href="#familyDealsSection">Family Deals</a></li>
+        <li><a href="/review.html">Write a Review</a></li>
+        <li><a href="#customerReviewsSection">Customer Reviews</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h3>Subscribe</h3>
+      <p>Get latest updates & offers</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email">
+        <button class="btn btn-accent" id="subscribeBtn">Subscribe</button>
+      </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><img src="img/social-media.png" alt="Facebook"></a>
+        <a href="#"><img src="img/send.png" alt="Instagram"></a>
+        <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="img/youtube.png" alt="YouTube"></a>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <p class="footer-copy">© 2025 Spice Junction. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

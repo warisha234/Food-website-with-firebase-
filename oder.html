@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/hero.png" type="image/x-icon">
+    <title>Spice Junction Order Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        
+.order-section {
+  background: #1a0a00;           
+  padding: 50px 20px;
+}
+
+.order-container {
+  max-width: 450px;
+  margin: 0 auto;
+  background: #160800;
+  padding: 30px 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 140, 26, 0.8);
+  color: #fff8cc;
+  font-family: "Poppins", sans-serif;
+}
+
+.order-heading {
+  text-align: center;
+  font-size: 28px;
+  color: #ffb347;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+#orderForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#orderForm label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+#orderForm input,
+#orderForm select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background: #140700;
+  color: #fff8cc;
+}
+
+#orderForm input::placeholder {
+  color: #ccc38f;
+}
+
+.btn.btn-accent {
+  background: #ff8c1a;
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn.btn-accent:hover {
+  background: #ff9b3d;
+  transform: scale(1.05);
+}
+    </style>
+</head>
+<body>
+  
+<section id="orderNow" class="order-section">
+  <div class="order-container">
+    <h2 class="order-heading">Place Your Order</h2>
+    <form id="orderForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="product">Select Product</label>
+      <select id="product" name="product" required>
+        <option value="">-- Select Product --</option>
+        <option value="Chicken Biryani">Chicken Biryani</option>
+        <option value="Lasagna">Lasagna</option>
+        <option value="Chicken Roll">Chicken Roll</option>
+        <option value="Singaporean Rice">Singaporean Rice</option>
+        <option value="Chicken Tikka">Chicken Tikka</option>
+        <option value="Zinger Burger">Zinger Burger</option>
+      </select>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+      <button type="submit" class="btn btn-accent">Place Order</button>
+    </form>
+  </div>
+</section>
+
+<script>
+
+const orderForm = document.getElementById("orderForm");
+
+orderForm.addEventListener("submit", function(e) {
+  e.preventDefault(); 
+
+
+  const name = document.getElementById("name").value;
+  const product = document.getElementById("product").value;
+  const quantity = document.getElementById("quantity").value;
+
+  Swal.fire({
+    title: 'Order Placed!',
+    html: `Thank you <strong>${name}</strong>!<br>Your order of <strong>${quantity} "${product}"</strong> has been placed.`,
+    icon: 'success',
+    confirmButtonText: 'OK',
+    background: '#411d08ff',
+    color: '#fff8cc',
+    confirmButtonColor: '#ff8c1a'
+  });
+
+  orderForm.reset();
+});
+
+</script>
+
+</body>
+</html>
